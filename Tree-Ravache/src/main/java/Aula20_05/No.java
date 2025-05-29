@@ -3,9 +3,12 @@ package Aula20_05;
 public class No {
     String valor;
     No esquerda, direita;
+    int altura;
 
-    public No(String valor, No esquerda, No direita){
+    public No(String valor) {
         this.valor = valor;
-        esquerda = direita = null;
+        this.esquerda = null;
+        this.direita = null;
+        this.altura = 1;
     }
 }
