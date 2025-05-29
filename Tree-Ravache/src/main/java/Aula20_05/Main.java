@@ -11,8 +11,7 @@ public class Main {
         raiz.esquerda.direita = new Node("E");
         raiz.direita.direita = new Node("F");
 
-
-        System.out.print("~Atividades Ravache - Arvores Binarias~");
+        System.out.print("~Atividades Ravache - Arvores Binárias~");
         System.out.print("\n--------------------------------------");
 
         System.out.println("\n\nQuantidade de nós: " + new ContarNo().contarNos(raiz));
@@ -28,5 +27,26 @@ public class Main {
 
         System.out.print("\nBusca por nível: ");
         BuscarNivel.buscaNivel(raiz);
+
+        System.out.print("\n\n~Testando AVL Balanceada~");
+        System.out.print("\n--------------------------------------");
+
+        ArvoreAVL avl = new ArvoreAVL();
+
+        avl.inserir("A");
+        avl.inserir("B");
+        avl.inserir("C");
+        avl.inserir("D");
+        avl.inserir("E");
+        avl.inserir("F");
+
+        System.out.print("\nAVL Em Ordem (Balanceada): ");
+        avl.imprimirInOrder();
+
+        System.out.print("AVL Pré-Ordem: ");
+        avl.imprimirPreOrdem();
+
+        System.out.print("AVL Pós-Ordem: ");
+        avl.imprimirPosOrdem();
     }
 }
