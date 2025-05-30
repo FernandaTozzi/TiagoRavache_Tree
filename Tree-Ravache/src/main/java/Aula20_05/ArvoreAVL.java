@@ -1,19 +1,19 @@
 package Aula20_05;
 
 class ArvoreAVL {
-    private No raiz;
+    private Node raiz;
 
-    private int altura(No no) {
+    private int altura(Node no) {
         return (no == null) ? 0 : no.altura;
     }
 
-    private int fatorBalanceamento(No no) {
+    private int fatorBalanceamento(Node no) {
         return (no == null) ? 0 : altura(no.esquerda) - altura(no.direita);
     }
 
-    private No rotacaoDireita(No y) {
-        No x = y.esquerda;
-        No T2 = x.direita;
+    private Node rotacaoDireita(Node y) {
+        Node x = y.esquerda;
+        Node T2 = x.direita;
 
         x.direita = y;
         y.esquerda = T2;
@@ -24,9 +24,9 @@ class ArvoreAVL {
         return x;
     }
 
-    private No rotacaoEsquerda(No x) {
-        No y = x.direita;
-        No T2 = y.esquerda;
+    private Node rotacaoEsquerda(Node x) {
+        Node y = x.direita;
+        Node T2 = y.esquerda;
 
         y.esquerda = x;
         x.direita = T2;
@@ -37,9 +37,9 @@ class ArvoreAVL {
         return y;
     }
 
-    private No inserir(No no, String valor) {
+    private Node inserir(Node no, String valor) {
         if (no == null)
-            return new No(valor);
+            return new Node(valor);
 
         if (valor.compareTo(no.valor) < 0)
             no.esquerda = inserir(no.esquerda, valor);
@@ -80,7 +80,7 @@ class ArvoreAVL {
         System.out.println();
     }
 
-    private void imprimirInOrder(No no) {
+    private void imprimirInOrder(Node no) {
         if (no != null) {
             imprimirInOrder(no.esquerda);
             System.out.print(no.valor + " ");
@@ -93,7 +93,7 @@ class ArvoreAVL {
         System.out.println();
     }
 
-    private void imprimirPreOrdem(No no) {
+    private void imprimirPreOrdem(Node no) {
         if (no != null) {
             System.out.print(no.valor + " ");
             imprimirPreOrdem(no.esquerda);
@@ -106,12 +106,11 @@ class ArvoreAVL {
         System.out.println();
     }
 
-    private void imprimirPosOrdem(No no) {
+    private void imprimirPosOrdem(Node no) {
         if (no != null) {
             imprimirPosOrdem(no.esquerda);
             imprimirPosOrdem(no.direita);
             System.out.print(no.valor + " ");
         }
     }
-
 }
